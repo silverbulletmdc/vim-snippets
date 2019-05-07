@@ -125,7 +125,8 @@ endsnippet
 snippet dm "Math" wA
 $$
 $1
-. $$ $0
+. $$ 
+$0
 endsnippet
 
 snippet sum "Sum" 
@@ -153,6 +154,10 @@ snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
+# snippet / "Fraction" iA
+# \\frac{${VISUAL}}{$1}$0
+# endsnippet
+
 priority 1000
 snippet '^.*\)/' "() Fraction" wrA
 `!p
@@ -168,9 +173,6 @@ snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
 `{$1}$0
 endsnippet
 
-snippet / "Fraction" iA
-\\frac{${VISUAL}}{$1}$0
-endsnippet
 
 snippet sympy "sympy block " w
 sympy $1 sympy$0
